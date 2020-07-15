@@ -35,7 +35,28 @@ inquirer.prompt([
 ])
     .then(answers => {
         teamMembers.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
+        createEmployee();
     })
+
+function createEmployee() {
+    inquirer.prompt({
+        name: "choice",
+        type: "list", 
+        message: "Who would you like to add?",
+        choices: ["Engineer", "Intern", "None"]
+    })
+        .then(answers => {
+            if (answers.choice === "Engineer") {
+                createEngineer();
+            }
+            if (answers.choice === "Intern") {
+                createIntern();
+            }
+            if (answers.choice === "None") {
+                createHTML();
+            }
+        })
+}
 
 function createEngineer() {
     inquirer.prompt([
@@ -62,6 +83,7 @@ function createEngineer() {
     ])
         .then(answers => {
             teamMembers.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
+            createEmployee();
         })
 }
 
@@ -90,6 +112,7 @@ function createIntern() {
     ])
         .then(answers => {
             teamMembers.push(new Intern(answers.name, answers.id, answers.email, answers.school));
+            createEmployee();
         })
 }
 
