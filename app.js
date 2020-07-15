@@ -89,31 +89,36 @@ function createEngineer() {
 
 function createIntern() {
     inquirer.prompt([
-        {
-            type: "input", 
-            message: "Enter the intern's name: ",
-            name: "name: ",
-        },
-        {
-            type: "input", 
-            message: "Enter the intern's id: ",
-            name: "id: ",
-        },
-        {
-            type: "input", 
-            message: "Enter the intern's email: ",
-            name: "email: ",
-        },
-        {
-            type: "input", 
-            message: "Enter the intern's school: ",
-            name: "school: ",
-        }
+      {
+        type: "input",
+        message: "Enter the intern's name: ",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "Enter the intern's id: ",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "Enter the intern's email: ",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "Enter the intern's school: ",
+        name: "school",
+      }
     ])
-        .then(answers => {
-            teamMembers.push(new Intern(answers.name, answers.id, answers.email, answers.school));
-            createEmployee();
-        })
+      .then(answers => {
+        teamMembers.push(new Intern(answers.name, answers.id, answers.email, answers.school));
+        createEmployee();
+      })
+    
+  }
+
+function createHTML() {
+    fs.writeFileSync(outputPath, render(teamMembers));
 }
 
 
