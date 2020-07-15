@@ -36,6 +36,37 @@ inquirer.prompt([
     .then(answers => {
         teamMembers.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
     })
+
+function createEngineer() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Enter the engineer's name: ",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "Enter the engineer's id: ",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "Enter the engineer's email: ",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "Enter the engineer's Github username: ",
+            name: "github",
+        },
+    ])
+        .then(answers => {
+            teamMembers.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
+        })
+}
+
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
