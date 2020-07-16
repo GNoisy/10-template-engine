@@ -14,6 +14,11 @@ This screeshot shows the user being prompted for input about Engineer.
 ![](prompt2.gif)
 
 ```
+This screeshot shows the user being prompted for input about Intern.
+```
+![](prompt3.gif)
+
+```
 This screeshot shows the html team page result.
 ```
 ![](screenshot-team-page.png)
